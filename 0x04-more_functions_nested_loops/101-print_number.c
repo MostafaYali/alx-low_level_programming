@@ -1,29 +1,23 @@
-#include <stdio.h>
+#include "main.h"
 
 /**
- * main - prints the largest prime factor of the number 612852475143
+ * print_number - prints an integer using only _putchar
+ * @n : integer to print
  *
- * Description:
- *		- A factor is a number that can be evenly divided into another number.
- *			For example, the factors of 6 are 1, 2, 3, and 6.
- *		- A prime factor is a factor that is also a prime number, which means
- *			it can only be divided by 1 and itself. For example, the prime
- *			factors of 6 are 2 and 3.
- *
- * Return: 0
+ * Return: void
  */
-int main(void)
+void print_number(int n)
 {
-	long int n = 612852475143;
-	long int i;
+	unsigned int num = n;
 
-	for (i = 2; i < n; i++)
+	if (n < 0)
 	{
-		while (n % i == 0)
-			n /= i;
+		_putchar('-');
+		num = n * -1;
 	}
 
-	printf("%ld\n", n);
+	if (num > 9)
+		print_number(num / 10);
 
-	return (0);
-}
+	_putchar(num % 10 + '0');
+}}
